@@ -9,6 +9,7 @@ private:
 	//static ResourceHandler scene_objects;
 	//pugi::xml_document doc;
 	//std::string resource_path;
+
 	int argc;
 	char** argv;
 	TestEngine file_handler;
