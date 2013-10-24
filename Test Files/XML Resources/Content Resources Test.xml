@@ -1,0 +1,26 @@
+<Root>
+  
+  <Resource
+    ObjFilePath="Texture_Face.obj">
+  </Resource>
+
+  <!--
+  <Resource
+    ObjFilePath="sibenik.obj">
+  </Resource>
+
+  -->
+
+  <Resource
+    ObjFilePath="Teapot.obj">
+  </Resource>
+
+
+  <ShaderPair
+    VertexShaderPath="Vertex Shader.glsl"
+    FragmentShaderPath="Fragment Shader.glsl">
+  </ShaderPair>
+
+  
+</Root>
+
