@@ -1,27 +1,82 @@
 
 #include "CudaGLBuffer.cuh"
 
+
+__device__ float3 operator+(const float3 &a, const float3 &b)
+{
+  return make_float3(a.x+b.x, a.y+b.y, a.z+b.z);
+}
+
+__device__ float3 operator* (const float3 &a, const float &b)
+{
+	return make_float3(a.x * b, a.y * b, a.z * b);
+}
+
 __global__ void simple_vbo_kernel(float *pos, int *indices, int num_vertices, int timestep)
 {
-	unsigned int x = blockIdx.x * timestep;
+	unsigned int x = blockIdx.x * 3;
+	//unsigned int giu = blockDim.x;
+	//unsigned int dij = threadIdx.y;
 	int stride = 8;
+
+	float3 v1;
+	float3 v2;
+	float3 v3;
 
 	int idx_1 = indices[x] * stride;
 	int idx_2 = indices[x + 1] * stride;
 	int idx_3 = indices[x + 2] * stride;
 
-	float4 factor = float4();
-	float mul = 0.9;
-	for (int i = 0; i < 3; i++)
-	{
-		pos[idx_1] = pos[idx_1] * mul;
-		pos[idx_2] = pos[idx_2] * mul;
-		pos[idx_3] = pos[idx_3] * mul;
+	v1.x = pos[idx_1];
+	v1.y = pos[idx_1 + 1];
+	v1.z = pos[idx_1 + 2];
 
-		idx_1 += 1;
-		idx_2 += 1;
-		idx_3 += 1;
-	}
+	v2.x = pos[idx_2];
+	v2.y = pos[idx_2 + 1];
+	v2.z = pos[idx_2 + 2];
+
+	v3.x = pos[idx_3];
+	v3.y = pos[idx_3 + 1];
+	v3.z = pos[idx_3 + 2];
+
+	float small_num = 0.001;
+	float3 middle = v1 + v2 + v3;
+	v1 = v1 + middle * small_num;
+	v2 = v2 + middle * small_num;
+	v3 = v3 + middle * small_num;
+
+	pos[idx_1] = v1.x;
+	pos[idx_1 + 1] = v1.y;
+	pos[idx_1 + 2] = v1.z;
+
+	pos[idx_2] = v2.x;
+	pos[idx_2 + 1] = v2.y;
+	pos[idx_2 + 2] = v2.z;
+
+	pos[idx_3] = v3.x;
+	pos[idx_3 + 1] = v3.y;
+	pos[idx_3 + 2] = v3.z;
+
+	//pos[idx_1] = pos[idx_1] + sinf(timestep / 9) / 15.0;
+	//pos[idx_1 + 1] = pos[idx_1 + 1] + cosf(timestep / 9) / 15.0;
+	//pos[idx_1 + 2] = pos[idx_1 + 2] + cosf(timestep / 9) / 15.0;
+
+
+
+
+
+
+
+	//float mul = 0.9;
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	pos[idx_1] = pos[idx_1] * mul;
+	//	pos[idx_2] = pos[idx_2] * mul;
+	//	pos[idx_3] = pos[idx_3] * mul;
+	//	idx_1 += 1;
+	//	idx_2 += 1;
+	//	idx_3 += 1;
+	//}
 }
 
 CudaGLBufferObj::CudaGLBufferObj(void)
@@ -113,9 +168,10 @@ void CudaGLBufferObj::initIndexBuffer(int* indices, int n)
 
 void CudaGLBufferObj::launchKernel()
 {
-	dim3 block(16, 1, 1);
-	dim3 grid(1, 1, 1);
-	simple_vbo_kernel<<<block, grid>>>((float*)dev_arg1, (int*) dev_indices, num_vertices, timestep++);
+	return;
+	dim3 block(num_vertices / 3, 1, 1);
+	dim3 threads_per_block(1, 1, 1);
+	simple_vbo_kernel<<<block, threads_per_block>>>((float*)dev_arg1, (int*) dev_indices, num_vertices, timestep++);
 }
 
 void CudaGLBufferObj::unbind()
@@ -200,4 +256,14 @@ void CudaGLBufferObj::initBuffers()
 			delete[] p.client_data;
 	}
 	bound = true;
+}
+
+cudaGraphicsResource_t CudaGLBufferObj::getVBO()
+{
+	return cuda_vbo;
+}
+
+cudaGraphicsResource_t CudaGLBufferObj::getIBO()
+{
+	return cuda_ibo;
 }

@@ -10,6 +10,7 @@ class CudaGLBufferObj :
 	public BufferManager
 {
 protected:
+	vec3 v;
 	unsigned int vao_handle;
 	cudaGraphicsResource_t cuda_vbo;
 	cudaGraphicsResource_t cuda_ibo;
@@ -19,6 +20,8 @@ protected:
 	void launchKernel();
 	int timestep;
 public:
+	cudaGraphicsResource_t getVBO();
+	cudaGraphicsResource_t getIBO();
 	virtual void initIndexBuffer(int* data, int size);
 	virtual std::string getType();
 	virtual void bind();
@@ -26,14 +29,5 @@ public:
 	virtual void initBuffers();
 	CudaGLBufferObj(void);
 	~CudaGLBufferObj(void);
-};
-
-struct dumb
-{
-	int d;
-};
-struct dumb2
-{
-	int e;
 };
 

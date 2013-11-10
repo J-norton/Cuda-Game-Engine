@@ -6,7 +6,8 @@ Shader::Shader(std::string vs_path, std::string fs_path) :
 	uniforms(std::vector<UniformBlock>()),
 	uniform_inputs(std::vector<ShaderParameter>()),
 	uniform_buffer_handle(0),
-	uniform_buffered(false)
+	uniform_buffered(false),
+	dirty_uniforms(true)
 {
 	std::string dir = "../Test Files/Shader Programs/";
 	vs_shader_path = dir.append(vs_path);
@@ -131,14 +132,24 @@ void Shader::addUniformBlock(UniformBlock block)
 void Shader::bind()
 {
 	if (!compiled)
+	{
 		compileShaders();
+		glUniformBlockBinding(program_handle, getUniformBlockIndex("camera_attributes"), 0);
+	}
 
 	glUseProgram(program_handle);
 
-	bindUniforms();
+	if (dirty_uniforms)
+	{
+		bindUniforms();
+		dirty_uniforms = false;
+	}
 
 	if (!uniform_buffered && uniforms.size() > 0)
 	{
+		//Make the camera_attributes uniform buffer point to buffer 0
+		glUniformBlockBinding(program_handle, getUniformBlockIndex("camera_attributes"), 0);
+
 		initializeUniformBlocks();
 		uniform_buffered = true;
 	}
@@ -171,10 +182,26 @@ void Shader::bindUniforms()
 		if (glGetError() != GL_NO_ERROR)
 			std::cout << "Error occurred binding uniform input" << std::endl;
 	}
-	for (ShaderParameter& p : uniform_inputs)
+	//for (ShaderParameter& p : uniform_inputs)
+	//{
+	//	if (strcmp(p.name.c_str(), "position") == 0)
+	//		p.client_data[0] += 0.3;
+	//}
+}
+
+//Alters a vec3 value sent to the GL
+void Shader::setUniform(std::string name, vec3 new_value)
+{
+	for (ShaderParameter& param : uniform_inputs)
 	{
-		if (strcmp(p.name.c_str(), "position") == 0)
-			p.client_data[0] += 0.3;
+		if (strcmp(name.c_str(), param.name.c_str()) == 0)
+		{
+			param.client_data[0] = new_value.x;
+			param.client_data[1] = new_value.y;
+			param.client_data[2] = new_value.z;
+			dirty_uniforms = true;
+			break;
+		}
 	}
 }
 
@@ -353,4 +380,37 @@ void Shader::initializeUniformBlocks()
 	delete[] data;
 	//Unbind uniform buffer
 	glBindBuffer(GL_UNIFORM_BUFFER, 0);
+}
+
+Shader::Shader(const Shader& copy) :
+	dirty_uniforms(copy.dirty_uniforms),
+	program_handle(copy.program_handle),
+	vs_handle(copy.vs_handle),
+	fs_handle(copy.fs_handle),
+	vs_shader_path(copy.vs_shader_path),
+	fs_shader_path(copy.fs_shader_path),
+	compiled(copy.compiled),
+	uniform_buffered(copy.uniform_buffered),
+	uniforms(copy.uniforms),
+	uniform_inputs(copy.uniform_inputs),
+	transform_outs(copy.transform_outs),
+	uniform_buffer_handle(copy.uniform_buffer_handle)
+{
+}
+
+Shader& Shader::operator= (const Shader& rhs)
+{
+	dirty_uniforms = rhs.dirty_uniforms;
+	program_handle = rhs.program_handle;
+	vs_handle = rhs.vs_handle;
+	fs_handle = rhs.fs_handle;
+	vs_shader_path = rhs.vs_shader_path;
+	fs_shader_path = rhs.fs_shader_path;
+	compiled = rhs.compiled;
+	uniform_buffered = rhs.uniform_buffered;
+	uniforms = rhs.uniforms;
+	uniform_inputs = rhs.uniform_inputs;
+	transform_outs = rhs.transform_outs;
+	uniform_buffer_handle = rhs.uniform_buffer_handle;
+	return *this;
 }

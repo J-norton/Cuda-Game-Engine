@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CudaCompile Include="simpleGL.cu" />
-    <CudaCompile Include="CudaGLBuffer.cu" />
+    <CudaCompile Include="GeometryManager.cu">
+      <Filter>GL Engine\Source Files</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GL Engine">
@@ -24,6 +25,10 @@
     <Filter Include="XML Data">
       <UniqueIdentifier>{0c8aa357-3d90-4735-a828-4fef68a58ffd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Meshes">
+      <UniqueIdentifier>{ba9b7e49-3775-4300-bdc3-9a14f9394249}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BufferManager.cpp">
@@ -44,15 +49,6 @@
     <ClCompile Include="WorldState.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CenteredXmlVisitor.cpp">
-      <Filter>GL Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CompositeGrid.cpp">
-      <Filter>GL Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectState.cpp">
-      <Filter>GL Engine\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RenderTarget.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
@@ -68,22 +64,13 @@
     <ClCompile Include="ObjFileReader.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestEngine.cpp">
-      <Filter>GL Engine\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TriangleMesh.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CompressedTexture.cpp">
-      <Filter>GL Engine\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FrameBufferTexture.cpp">
-      <Filter>GL Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MipmappedTexture.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Texture3D.cpp">
@@ -93,6 +80,15 @@
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vec3.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -115,15 +111,6 @@
     <ClInclude Include="WorldState.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CenteredXmlVisitor.h">
-      <Filter>GL Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CompositeGrid.h">
-      <Filter>GL Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectState.h">
-      <Filter>GL Engine\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceHandler.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
@@ -139,28 +126,31 @@
     <ClInclude Include="ObjFileReader.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TestEngine.h">
-      <Filter>GL Engine\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TriangleMesh.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CompressedTexture.h">
-      <Filter>GL Engine\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FrameBufferTexture.h">
-      <Filter>GL Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MipmappedTexture.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Texture3D.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TransformFeedbackBuffer.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.hpp">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node Visitor Header.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -170,6 +160,9 @@
     </Xml>
     <Xml Include="..\Test Files\XML Resources\Content Resources Test.xml">
       <Filter>XML Data</Filter>
+    </Xml>
+    <Xml Include="..\Test Files\XML Scenarios\Scene Input2.xml">
+      <Filter>XML Scenarios</Filter>
     </Xml>
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +178,22 @@
     <None Include="..\Test Files\Shader Programs\Vertex Shader.glsl">
       <Filter>GLSL Shaders</Filter>
     </None>
-    <None Include="CudaGLBuffer.cuh" />
+    <None Include="GeometryManager.cuh">
+      <Filter>GL Engine\Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\Test Files\Meshes\cube.obj">
+      <Filter>Meshes</Filter>
+    </Object>
+    <Object Include="..\Test Files\Meshes\Texture_Face.obj">
+      <Filter>Meshes</Filter>
+    </Object>
+    <Object Include="..\Test Files\Meshes\Ocean.obj">
+      <Filter>Meshes</Filter>
+    </Object>
+    <Object Include="..\Test Files\Meshes\sibenik.obj">
+      <Filter>Meshes</Filter>
+    </Object>
   </ItemGroup>
 </Project>

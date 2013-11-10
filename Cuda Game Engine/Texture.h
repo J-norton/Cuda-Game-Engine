@@ -26,7 +26,7 @@ public:
 	virtual void bind();
 	virtual void unbind();
 	//Constructs a texture from an image file
-	Texture(std::string file_path);
+	Texture(std::string file_path, bool generate_mipmaps = false);
 	//Constructs a texture from an image file with specified size
 	Texture(std::string file_path, int width, int height);
 	//Constructs a texture from a pre-existing image

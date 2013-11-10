@@ -1,67 +1,53 @@
 #pragma once
-#include "Shader.h"
-#include "BufferManager.h"
-#include "WorldState.h"
-#include <vector>
-#include "TriangleMesh.h"
-#include "ObjFileReader.h"
+//#include <vector>
+//#include "TriangleMesh.h"
 
-#define COMPOSITE_GRID_H
-#include "Visitor Header.h"
+//#define COMPOSITE_GRID_H
+//#include "Visitor Header.h"
 
-#include "ScenarioException.h"
-#include "FrameBufferTexture.h"
+//#include "ScenarioException.h"
+//#include "GeometryManager.cuh"
+//#include "Camera.h"
+//#include "Node.h"
 
-class CompositeGrid
-{
-private:
-	bool is_leaf;
-	bool is_root;
-	int x;
-	int y;
-
-	int left;
-	int bottom;
-	int right;
-	int top;
-
-    static Texture frame_image;
-
-	//Recursively allocates the memory for the grid
-	void recursiveBuild();
-
-	BufferManager buffers;
-    //FrameBufferTexture frame;
-
-	//CompositeGrid &parent;
-	std::vector<CompositeGrid*> children;
-	std::vector<TriangleMesh> meshes;
-	//Draws all of the geometry in each individual tile
-	void recursiveDraw();
-
-	//Texture that renders error messages to the screen in case of an
-	//uncaught exception
-	TriangleMesh error_texture;
-
-    float counter;
-
-	static Shader grid_shader;
-public:
-	friend class Visitor;
-	friend class XmlVisitor;
-	friend class CenteredXmlVisitor;
-	friend class GlobalXmlVisitor;
-	
-	//Switches which are set by command line arguments
-	static bool clip_tiles;
-	static bool center_view;
-
-	void init();
-	void draw();
-	void acceptVisitor(Visitor* v);
-	CompositeGrid(int x, int y, int l, int r, int b, int t); 
-	CompositeGrid(const CompositeGrid& copy);
-	CompositeGrid& operator=(const CompositeGrid& rhs);
-	CompositeGrid(void);
-	~CompositeGrid(void);
-};
+//class CompositeGrid
+//{
+//private:
+//	int left;
+//	int bottom;
+//	int right;
+//	int top;
+//	//Camera camera;
+//	//The root container for all the geometry in the scene
+//	//Node root_object;
+//
+//	//int last_mouse_x;
+//	//int last_mouse_y;
+//
+//	GeometryManager physics_engine;
+//
+//	//std::vector<TriangleMesh> meshes;
+//	//Draws all of the geometry in each individual tile
+//	void recursiveDraw();
+//
+//    //float counter;
+//
+//public:
+//	friend class Visitor;
+//	friend class GlobalXmlVisitor;
+//	
+//	//Switches which are set by command line arguments
+//	static bool clip_tiles;
+//	static bool center_view;
+//
+//	void mouseMoved(int x, int y);
+//	void handleInput(unsigned char key_pressed, int x, int y);
+//	void updateObjects();
+//	void draw();
+//	//void acceptVisitor(Visitor* v);
+//	CompositeGrid(int x, int y, int l, int r, int b, int t); 
+//	CompositeGrid(const CompositeGrid& copy);
+//	CompositeGrid& operator=(const CompositeGrid& rhs);
+//	CompositeGrid(void);
+//	~CompositeGrid(void);
+//};

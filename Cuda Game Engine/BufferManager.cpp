@@ -101,7 +101,10 @@ void BufferManager::initBuffers()
             //The index into the array that will
             int offset = p.cardinality * i;
             for (int j = 0; j < p.cardinality; j++)
-                interleaved_data[k++] = (p.client_data[offset + j]);
+			{
+				float next = p.client_data[offset + j];
+                interleaved_data[k++] = p.client_data[offset + j];
+			}
         }
     }
     GLuint* buffer_return = new GLuint[1];
@@ -111,6 +114,10 @@ void BufferManager::initBuffers()
     glBindBuffer(GL_ARRAY_BUFFER, interleave_handle);
     glBufferData(GL_ARRAY_BUFFER, buffer_size, &interleaved_data[0], GL_STATIC_DRAW);
     //Unbind
+	cudaError_t err = cudaGraphicsGLRegisterBuffer(&cuda_vbo, interleave_handle, cudaGraphicsMapFlagsWriteDiscard);
+	if (err != 0)
+		std::cout << "Could not map GL Buffer to CUDA" << std::endl;
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     delete[] buffer_return;
@@ -118,8 +125,9 @@ void BufferManager::initBuffers()
     //Delete all individual client-side arrays
     for (ShaderParameter p : parameters)
     {
-        if (p.delete_on_buffer)
-            delete[] p.client_data;
+		//TODO: Replace client_data with STL objects
+        //if (p.delete_on_buffer)
+        //    delete[] p.client_data;
     }
     bound = true;
 }
@@ -147,6 +155,16 @@ int BufferManager::getNumVertices()
     return num_vertices;
 }
 
+cudaGraphicsResource_t BufferManager::getVBO()
+{
+	return cuda_vbo;
+}
+
+cudaGraphicsResource_t BufferManager::getIBO()
+{
+	return cuda_ibo;
+}
+
 void BufferManager::initIndexBuffer(int* indices, int n)
 {
     has_indices = true;
@@ -161,6 +179,45 @@ void BufferManager::initIndexBuffer(int* indices, int n)
     // Unbind buffer
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
+	cudaError_t error = cudaGraphicsGLRegisterBuffer(&cuda_ibo, index_handle, cudaGraphicsMapFlagsWriteDiscard);
+
+	if (error != cudaSuccess)
+		std::cout << "Error occurred mapping index buffer to CUDA" << std::endl;
+
     //Now that the memory is buffered, delete the client-side ints
     delete[] indices;
+}
+
+BufferManager::BufferManager(const BufferManager& copy) :
+	interleave_handle(copy.interleave_handle),
+	index_handle(copy.index_handle),
+	has_indices(copy.has_indices),
+	num_vertices(copy.num_vertices),
+	data(copy.data),
+	bound(copy.bound),
+	parameters(copy.parameters),
+	stride(copy.stride),
+	vao_handle(copy.vao_handle),
+	cuda_vbo(copy.cuda_vbo),
+	cuda_ibo(copy.cuda_ibo)
+{
+}
+
+
+BufferManager& BufferManager::operator=(const BufferManager& rhs)
+{
+	interleave_handle = rhs.interleave_handle;
+	index_handle = rhs.index_handle;
+	has_indices = rhs.has_indices;
+	num_vertices = rhs.num_vertices;
+	data = rhs.data;
+	bound = rhs.bound;
+	parameters = rhs.parameters;
+	stride = rhs.stride;
+
+	vao_handle = rhs.vao_handle;
+	cuda_vbo = rhs.cuda_vbo;
+	cuda_ibo = rhs.cuda_ibo;
+
+	return *this;
 }

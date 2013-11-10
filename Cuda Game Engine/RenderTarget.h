@@ -1,12 +1,18 @@
 #pragma once
 #include <boost/program_options.hpp>
-#include "CompositeGrid.h"
+//#include "CompositeGrid.h"
+#include "Camera.h"
+#include "Node.h"
 
 
 class RenderTarget
 {
 private:
-	CompositeGrid tiles;
+	int last_mouse_x;
+	int last_mouse_y;
+	Camera camera;
+
+	//CompositeGrid tiles;
 	int width;
 	int height;
 	std::string execution_path;
@@ -16,7 +22,10 @@ private:
 	bool captured;
 	void captureImage();
     int scenario_id;
+	Node root_object;
 public:
+	void mouseMoved(int x, int y);
+	void handleInput(unsigned char key_pressed, int x, int y);
 	void dispatchVisitor();
 	int getWidth();
 	int getHeight();

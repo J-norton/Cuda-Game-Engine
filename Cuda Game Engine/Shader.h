@@ -6,10 +6,13 @@
 #include "ScenarioException.h"
 #include <vector>
 #include "UniformBlock.h"
+#include "vec3.hpp"
 
 class Shader
 {
 private:
+	//Indicates whether or not we need to resend uniforms to the GL when binding
+	bool dirty_uniforms;
     //GL Handles to program object and shaders.
 	int program_handle;
 	int vs_handle;
@@ -38,6 +41,8 @@ private:
     void initializeUniformBlocks();
 
 public:
+	//Sets a uniform, must be a vec3
+	void setUniform(std::string name, vec3 new_value);
 	//Adds a uniform input to the shader
 	void addUniform(ShaderParameter uniform);
     void addTransformedOutput(std::string output_name);
@@ -53,5 +58,7 @@ public:
 	void unbind();
 	Shader(std::string vs_shader_path, std::string fs_shader_path);
 	Shader();
+	Shader(const Shader& copy);
+	Shader& operator= (const Shader& rhs);
 	~Shader(void);
 };

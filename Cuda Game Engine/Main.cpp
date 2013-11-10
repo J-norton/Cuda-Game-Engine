@@ -10,7 +10,6 @@
 #include <helper_cuda.h>
 #include <helper_cuda_gl.h>
 
-
 #include "RenderTarget.h"
 
 RenderTarget render_manager ;
@@ -24,6 +23,17 @@ void resizeLoop(int width, int height)
 {
 	glViewport(0, 0, width, height);
 }
+
+void keyboardFunction(unsigned char key, int x, int y)
+{
+	render_manager.handleInput(key, x, y);
+}
+
+void mouseNotClickedMotion(int x, int y)
+{
+	render_manager.mouseMoved(x, y);
+}
+
 
 void initializeCuda();
 
@@ -43,6 +53,8 @@ int main(int argc, char** argv)
 	initializeCuda();
 
 	glutDisplayFunc(&displayLoop);
+	glutKeyboardFunc(&keyboardFunction);
+	glutPassiveMotionFunc(&mouseNotClickedMotion);
 	glutReshapeFunc(&resizeLoop);
 
 	render_manager = RenderTarget(1024, 1024, argc, argv);
