@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="GeometryManager.cu">
+      <Filter>GL Engine\Source Files</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="GL Engine">
+      <UniqueIdentifier>{66366a92-2588-441d-a90c-f73d0053d8c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GL Engine\Header Files">
+      <UniqueIdentifier>{0a6a2f0d-fbf9-48dd-8873-d43de9872777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GL Engine\Source Files">
+      <UniqueIdentifier>{4647fcf6-e372-4c41-9537-7b2c0097e5fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLSL Shaders">
+      <UniqueIdentifier>{410d45b8-eda5-4fa9-aa49-40534d115b05}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="XML Scenarios">
+      <UniqueIdentifier>{a54c9f09-0b33-43fc-b20b-41d9447eac27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XML Data">
+      <UniqueIdentifier>{0c8aa357-3d90-4735-a828-4fef68a58ffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Meshes">
+      <UniqueIdentifier>{ba9b7e49-3775-4300-bdc3-9a14f9394249}</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BufferManager.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioException.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderParameter.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UniformBlock.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldState.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTarget.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceHandler.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalXmlVisitor.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Visitor.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjFileReader.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangleMesh.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameBufferTexture.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture3D.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformFeedbackBuffer.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vec3.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BufferManager.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioException.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderParameter.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UniformBlock.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldState.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceHandler.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTarget.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalXmlVisitor.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Visitor.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFileReader.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleMesh.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameBufferTexture.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture3D.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformFeedbackBuffer.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.hpp">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node Visitor Header.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\Test Files\XML Scenarios\Scene Input1.xml">
+      <Filter>XML Scenarios</Filter>
+    </Xml>
+    <Xml Include="..\Test Files\XML Resources\Content Resources Test.xml">
+      <Filter>XML Data</Filter>
+    </Xml>
+    <Xml Include="..\Test Files\XML Scenarios\Scene Input2.xml">
+      <Filter>XML Scenarios</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Test Files\Shader Programs\FS Grid Shader.glsl">
+      <Filter>GLSL Shaders</Filter>
+    </None>
+    <None Include="..\Test Files\Shader Programs\VS Grid Shader.glsl">
+      <Filter>GLSL Shaders</Filter>
+    </None>
+    <None Include="..\Test Files\Shader Programs\Fragment Shader.glsl">
+      <Filter>GLSL Shaders</Filter>
+    </None>
+    <None Include="..\Test Files\Shader Programs\Vertex Shader.glsl">
+      <Filter>GLSL Shaders</Filter>
+    </None>
+    <None Include="GeometryManager.cuh">
+      <Filter>GL Engine\Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\Test Files\Meshes\cube.obj">
+      <Filter>Meshes</Filter>
+    </Object>
+    <Object Include="..\Test Files\Meshes\Texture_Face.obj">
+      <Filter>Meshes</Filter>
+    </Object>
+    <Object Include="..\Test Files\Meshes\Ocean.obj">
+      <Filter>Meshes</Filter>
+    </Object>
+    <Object Include="..\Test Files\Meshes\sibenik.obj">
+      <Filter>Meshes</Filter>
+    </Object>
+  </ItemGroup>
+</Project>

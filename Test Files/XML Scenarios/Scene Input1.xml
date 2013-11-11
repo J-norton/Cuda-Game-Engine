@@ -1,0 +1,164 @@
+<root>
+
+  <TriangleMesh
+    ObjFile="Teapot.obj"
+    VSPath="Vertex Shader.glsl"
+    FSPath="Fragment Shader.glsl"
+    Texture="Ambience.jpg">
+
+    <Texture
+      TexturePath="Ambience.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Uniform
+      Name="translation"
+      Type="vec3"
+      Data0="-1.0"
+      Data1="1.0"
+      Data2="-8.0">
+    </Uniform>
+
+    <Uniform
+      Name="scale"
+      Type="vec3"
+      Data0="0.04"
+      Data1="0.04"
+      Data2="0.04">
+    </Uniform>
+
+    <ShaderUniforms
+      Name="view_frustum"
+      BindingPoint="2">
+    </ShaderUniforms>
+    <UniformBlock
+      Name="view_frustum"
+      BindingPoint="2">
+      <Uniform
+        Name="right"
+        Type="float"
+        Data0="0.1">
+      </Uniform>
+      <Uniform
+        Name="top"
+        Type="float"
+        Data0="0.1">
+      </Uniform>
+      <Uniform
+        Name="near"
+        Type="float"
+        Data0="0.1">
+      </Uniform>
+      <Uniform
+        Name="far"
+        Type="float"
+        Data0="1000.0">
+      </Uniform>
+
+    </UniformBlock>
+  </TriangleMesh>
+
+  <TriangleMesh
+    ObjFile="Teapot.obj"
+    VSPath="Vertex Shader.glsl"
+    FSPath="Fragment Shader.glsl"
+    Texture="Checkered Marble.png">
+
+    <Texture
+      TexturePath="Checkered Marble.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+    <Uniform
+      Name="translation"
+      Type="vec3"
+      Data0="3.0"
+      Data1="-3.0"
+      Data2="-7.0">
+    </Uniform>
+
+    <Uniform
+      Name="scale"
+      Type="vec3"
+      Data0="-0.03"
+      Data1="0.03"
+      Data2="0.03">
+    </Uniform>
+
+    <ShaderUniforms
+      Name="view_frustum"
+      BindingPoint="2">
+    </ShaderUniforms>
+
+    <UniformBlock
+      Name="light_sources"
+      BindingPoint="4">
+      <Uniform
+        Name="light_source_1"
+        Type="vec4"
+        Data0="0.0"
+        Data1="0.0"
+        Data2="0.0"
+        Data3="1.0">
+      </Uniform>
+    </UniformBlock>
+
+
+  </TriangleMesh>
+
+
+
+  <!--Sibenik-->
+  <!--
+  <TriangleMesh
+    ObjFile="sibenik.obj"
+    VSPath="Vertex Shader.glsl"
+    FSPath="Fragment Shader.glsl"
+    Texture="Checkered Marble.png">
+
+    <Texture
+      TexturePath="Checkered Marble.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <ShaderUniforms
+      Name="model_view"
+      BindingPoint="3">
+    </ShaderUniforms>
+    <UniformBlock
+      Name="model_view"
+      BindingPoint="3">
+      <Uniform
+        Name="translation"
+        Type="vec3"
+        Data0="0.0"
+        Data1="0.0"
+        Data2="-10.0">
+      </Uniform>
+
+      <Uniform
+        Name="scale"
+        Type="vec3"
+        Data0="0.3"
+        Data1="0.3"
+        Data2="0.3">
+      </Uniform>
+
+    </UniformBlock>
+
+    <ShaderUniforms
+      Name="view_frustum"
+      BindingPoint="2">
+    </ShaderUniforms>
+
+  </TriangleMesh>
+  -->
+</root>

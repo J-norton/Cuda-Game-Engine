@@ -1,0 +1,261 @@
+<root>
+
+  <Camera>
+    <ViewDirection
+      x="0"
+      y="0"
+      z="1">
+    </ViewDirection>
+
+    <UpDirection
+      x="0"
+      y="1"
+      z="0">
+    </UpDirection>
+
+    <Location
+      x="0"
+      y="0"
+      z="0">
+    </Location>
+  </Camera>
+
+  <!--<SpatialNode>
+
+    <TriangleMesh
+      ObjFile="cube.obj"
+      VSPath="Vertex Shader.glsl"
+      FSPath="Fragment Shader.glsl"
+      Texture="Ocean Texture.png">
+
+      <Texture
+        TexturePath="Ocean Texture.png">
+        <Parameter
+        MinFilter="Linear"
+        MagFilter="Linear">
+        </Parameter>
+      </Texture>
+
+      <Uniform
+        Name="translation"
+        Type="vec3"
+        Data0="6.0"
+        Data1="4.0"
+        Data2="-12.0">
+      </Uniform>
+
+      <Uniform
+        Name="scale"
+        Type="vec3"
+        Data0="4.10"
+        Data1="4.10"
+        Data2="-4.10">
+      </Uniform>
+
+      <Uniform
+        Name="rotation"
+        Type="vec3"
+        Data0="0.0"
+        Data1="0.5"
+        Data2="0.5">
+      </Uniform>
+
+    </TriangleMesh>
+
+  </SpatialNode>-->
+
+  <!--<TriangleMesh
+    ObjFile="cube.obj"
+    VSPath="Vertex Shader.glsl"
+    FSPath="Fragment Shader.glsl"
+    Texture="Stone.png">
+
+    <Texture
+      TexturePath="Stone.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Uniform
+      Name="translation"
+      Type="vec3"
+      Data0="0.0"
+      Data1="4.0"
+      Data2="-12.0">
+    </Uniform>
+
+    <Uniform
+      Name="scale"
+      Type="vec3"
+      Data0="7.10"
+      Data1="7.10"
+      Data2="-7.10">
+    </Uniform>
+
+    <Uniform
+      Name="rotation"
+      Type="vec3"
+      Data0="0.0"
+      Data1="0.5"
+      Data2="0.5">
+    </Uniform>
+
+  </TriangleMesh>-->
+
+
+  <!--<TriangleMesh
+    ObjFile="Ocean.obj"
+    VSPath="Vertex Shader.glsl"
+    FSPath="Fragment Shader.glsl"
+    Texture="Ocean Texture.png"
+    StaticObject="true">
+
+    <Texture
+      TexturePath="Ocean Texture.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Uniform
+      Name="velocity"
+      Type="vec3"
+      Data0="0.0"
+      Data1="0.0"
+      Data2="0.0">
+    </Uniform>
+
+
+
+    <Uniform
+      Name="rotation"
+      Type="vec3"
+      Data0="0.0"
+      Data1="0.0"
+      Data2="0.0">
+    </Uniform>
+
+    <Uniform
+      Name="translation"
+      Type="vec3"
+      Data0="0.0"
+      Data1="-4.0"
+      Data2="-6.0">
+    </Uniform>
+
+    <Uniform
+      Name="scale"
+      Type="vec3"
+      Data0="1.0"
+      Data1="1.0"
+      Data2="1.0">
+    </Uniform>
+
+    <ShaderUniforms
+      Name="view_frustum"
+      BindingPoint="2">
+    </ShaderUniforms>
+  </TriangleMesh>-->
+
+
+
+  <TriangleMesh
+    ObjFile="Crytek Sponza.obj"
+    VSPath="Vertex Shader.glsl"
+    FSPath="Fragment Shader.glsl"
+    Texture="Checkered Marble.png">
+
+    <Texture
+      TexturePath="Checkered Marble.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+    <Uniform
+      Name="velocity"
+      Type="vec3"
+      Data0="0.0"
+      Data1="0.3"
+      Data2="0.0">
+    </Uniform>
+
+    <Uniform
+      Name="translation"
+      Type="vec3"
+      Data0="-125.0"
+      Data1="-5.0"
+      Data2="-12.0">
+    </Uniform>
+
+    <Uniform
+      Name="scale"
+      Type="vec3"
+      Data0="0.30"
+      Data1="0.30"
+      Data2="-0.30">
+    </Uniform>
+
+    <Uniform
+      Name="rotation"
+      Type="vec3"
+      Data0="0.0"
+      Data1="0.5"
+      Data2="0.5">
+    </Uniform>
+  </TriangleMesh>
+
+
+
+  <!--<TriangleMesh
+    ObjFile="sibenik.obj"
+    VSPath="Vertex Shader.glsl"
+    FSPath="Fragment Shader.glsl"
+    Texture="Checkered Marble.png">
+
+    <Texture
+      TexturePath="Checkered Marble.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+    <Uniform
+      Name="velocity"
+      Type="vec3"
+      Data0="0.0"
+      Data1="0.3"
+      Data2="0.0">
+    </Uniform>
+
+    <Uniform
+      Name="translation"
+      Type="vec3"
+      Data0="0.0"
+      Data1="4.0"
+      Data2="-12.0">
+    </Uniform>
+
+    <Uniform
+      Name="scale"
+      Type="vec3"
+      Data0="3.10"
+      Data1="3.10"
+      Data2="-3.10">
+    </Uniform>
+
+    <Uniform
+      Name="rotation"
+      Type="vec3"
+      Data0="0.0"
+      Data1="0.5"
+      Data2="0.5">
+    </Uniform>
+  </TriangleMesh>-->
+
+
+
+</root>

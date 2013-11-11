@@ -1,0 +1,133 @@
+<Root>
+
+  <!--
+  
+  <Resource
+    ObjFilePath="Texture_Face.obj">
+  </Resource>
+
+  <Resource
+    ObjFilePath="cube.obj">
+  </Resource>
+  <Resource
+    ObjFilePath="sibenik.obj">
+  </Resource>
+
+  <Resource
+    ObjFilePath="Teapot.obj">
+  </Resource>
+
+  -->
+
+    <Texture
+      TexturePath="rock04.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Redbrick.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="dry_clay.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+  <ShaderPair
+    VertexShaderPath="Vertex Shader.glsl"
+    FragmentShaderPath="Fragment Shader.glsl">
+  </ShaderPair>
+
+    <Texture
+      TexturePath="Lava.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Stonewall.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Checkered Marble.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Ocean Texture.png">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Rosewood.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Ambient Green.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Red Pattern.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Red Fuzzy Pattern.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Green Wall.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+    <Texture
+      TexturePath="Brick Circle Pattern.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+  
+</Root>
+
