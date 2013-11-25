@@ -12,6 +12,9 @@ private:
 	float top;
 	float near_plane;
 	float far_plane;
+	//Tracks the amount by which the camera has been rotated
+	float theta_x;
+	float theta_y;
 	vec3 location;
 	vec3 view_direction;
 	vec3 up_direction;
@@ -30,7 +33,6 @@ private:
 	float* buffer_data;
 	void setClientsideBuffer();
 public:
-	friend class CompositeGrid;
 	friend class RenderTarget;
 	//Called on a mouse movement
 	void mouseChanged(int dx, int dy);

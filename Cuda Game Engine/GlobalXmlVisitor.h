@@ -10,6 +10,7 @@ private:
 	std::string scenario_path;
 	void parseNode();
 	void parseMeshesToNode();
+	void parseLight(pugi::xml_node& xml_data, Node& node);
 	virtual void visitNode(Node* node, pugi::xml_node& xml_node);
 public:
 	//virtual void visitCompositeGrid(CompositeGrid* tiles);

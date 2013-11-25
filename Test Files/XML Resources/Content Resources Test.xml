@@ -97,6 +97,15 @@
     </Texture>
 
     <Texture
+      TexturePath="Green Wall.jpg">
+      <Parameter
+      MinFilter="Linear"
+      MagFilter="Linear">
+      </Parameter>
+    </Texture>
+
+<!--
+    <Texture
       TexturePath="Red Pattern.jpg">
       <Parameter
       MinFilter="Linear"
@@ -113,20 +122,13 @@
     </Texture>
 
     <Texture
-      TexturePath="Green Wall.jpg">
-      <Parameter
-      MinFilter="Linear"
-      MagFilter="Linear">
-      </Parameter>
-    </Texture>
-
-    <Texture
       TexturePath="Brick Circle Pattern.jpg">
       <Parameter
       MinFilter="Linear"
       MagFilter="Linear">
       </Parameter>
     </Texture>
+    -->
 
   
 </Root>

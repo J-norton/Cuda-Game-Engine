@@ -7,13 +7,15 @@ Camera::Camera(void) :
 	view_direction(vec3(0, 0, 1)),
 	up_direction(vec3(0, 1, 0)),
 	location(vec3(0, 0, 0)),
-	near_plane(0.1),
+	near_plane(1.0),
 	far_plane(1000.0),
-	left(-0.1),
-	right(0.1),
-	bottom(-0.1),
-	top(0.1),
-	initialized(false)
+	left(-1.0),
+	right(1.0),
+	bottom(-1.0),
+	top(1.0),
+	initialized(false),
+	theta_x(0.0),
+	theta_y(0.0)
 {
 }
 
@@ -91,30 +93,8 @@ void Camera::initialize()
 	//Allocate 'block_buffer_size' bytes of data on the GPU
 	glBufferData(GL_UNIFORM_BUFFER, block_buffer_size, nullptr, GL_STATIC_DRAW);
 
+	//Attaches all of the data in buffer_data
 	setClientsideBuffer();
-	//Even though these are vec3's, it will align each to take up 16 bytes
-	//data[0] = view_direction.x;
-	//data[1] = view_direction.y;
-	//data[2] = view_direction.z;
-	//data[3] = 0.0;
-
-	//data[4] = up_direction.x;
-	//data[5] = up_direction.y;
-	//data[6] = up_direction.z;
-	//data[7] = 0.0;
-
-	//data[8] = location.x;
-	//data[9] = location.y;
-	//data[10] = location.z;
-	//data[11] = 0.0;
-
-	////Frustum elements
-	//data[12] = left;
-	//data[13] = right;
-	//data[14] = bottom;
-	//data[15] = top;
-	//data[16] = near_plane;
-	//data[17] = far_plane;
 
 	//Now buffer the data
 	glBufferSubData(GL_UNIFORM_BUFFER, 0, block_buffer_size, buffer_data);
@@ -125,7 +105,6 @@ void Camera::initialize()
 	if (errc != GL_NO_ERROR)
 		std::cout << errc << std::endl << "Uniform Block buffer error" << std::endl;
 
-	//delete[] data;
 	//Unbind uniform buffer
 	glBindBuffer(GL_UNIFORM_BUFFER, 0);
 	dirty = false;
@@ -134,12 +113,40 @@ void Camera::initialize()
 
 void Camera::mouseChanged(int dx, int dy)
 {
-	view_direction.rotate(up_direction, ( (float) dx ) / 150.0);
-	vec3 right = view_direction.cross(up_direction);
-	up_direction.rotate(right, ( (float) -dy) / 250.0);
-	view_direction.rotate(right, ( (float) -dy) / 250.0);
+	theta_x += dx / 475.0;
+	theta_y += -dy / 475.0;
+	
+	theta_x = fmod(theta_x, 2 * 3.14159);
+	//theta_y must be between -pi/2 and pi/2 in order for the two angles
+	//to uniquely determine the view direction. Clamp theta_y at both extremes
+	if (theta_y > 3.14159 / 2.0f)
+		theta_y = 3.14159 / 2.0f;
+	if (theta_y < -3.14159 / 2.0f)
+		theta_y = -3.14159 / 2.0f;
+	vec3 straight_up = vec3(0, 1, 0);
+	view_direction.x = 0;
+	view_direction.y = 0;
+	view_direction.z = 1;
+	up_direction.x = 0;
+	up_direction.y = 1;
+	up_direction.z = 0;
+
+	view_direction.rotate(straight_up, theta_x);
+	vec3 right = view_direction.cross(straight_up);
+	view_direction.rotate(right, theta_y);
+
+	vec3 new_right = view_direction.cross(right);
+	up_direction.rotate(right, theta_y);
+	//up_direction = view_direction.cross(right);
+
+	//vec3 right = view_direction.cross(straight_up);
 	view_direction.normalize();
 	up_direction.normalize();
+
+	//float drift = up_direction * view_direction;
+	//std::cout << "Camera drift: " << drift<< std::endl << std::endl;
+	//std::cout << "theta_x: " << theta_x << std::endl;
+	//std::cout << "theta_y: " << theta_y << std::endl;
 	dirty = true;
 }
 

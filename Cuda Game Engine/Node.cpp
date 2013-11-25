@@ -17,6 +17,9 @@ void Node::acceptVisitor(Visitor* v)
 
 void Node::draw()
 {
+	for (Light& light : light_sources)
+		light.bind();
+
 	for (TriangleMesh& tmesh : meshes)
 		tmesh.draw();
 

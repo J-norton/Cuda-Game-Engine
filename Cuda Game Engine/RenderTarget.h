@@ -1,6 +1,5 @@
 #pragma once
 #include <boost/program_options.hpp>
-//#include "CompositeGrid.h"
 #include "Camera.h"
 #include "Node.h"
 
@@ -11,8 +10,9 @@ private:
 	int last_mouse_x;
 	int last_mouse_y;
 	Camera camera;
+	//Indicates whether the mouse needs to be recentered
+	bool need_reset_mouse;
 
-	//CompositeGrid tiles;
 	int width;
 	int height;
 	std::string execution_path;

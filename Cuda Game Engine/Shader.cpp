@@ -135,6 +135,7 @@ void Shader::bind()
 	{
 		compileShaders();
 		glUniformBlockBinding(program_handle, getUniformBlockIndex("camera_attributes"), 0);
+		glUniformBlockBinding(program_handle, getUniformBlockIndex("light_sources"), 1);
 	}
 
 	glUseProgram(program_handle);
@@ -149,6 +150,7 @@ void Shader::bind()
 	{
 		//Make the camera_attributes uniform buffer point to buffer 0
 		glUniformBlockBinding(program_handle, getUniformBlockIndex("camera_attributes"), 0);
+		glUniformBlockBinding(program_handle, getUniformBlockIndex("light_sources"), 1);
 
 		initializeUniformBlocks();
 		uniform_buffered = true;

@@ -8,7 +8,8 @@ RenderTarget::RenderTarget(int w, int h, int argc, char** argv) :
 	strings(argv),
 	captured(true),
 	last_mouse_x(-1),
-	last_mouse_y(-1)
+	last_mouse_y(-1),
+	need_reset_mouse(true)
 {
 	scenario_id = -1;
 	int tile_size = 4;
@@ -82,9 +83,13 @@ void RenderTarget::render()
 
 
 	//Resets the mouse to the center of the screen
-	glutWarpPointer(width / 2, height / 2);
-	last_mouse_x = width / 2;
-	last_mouse_y = height / 2;
+	if (need_reset_mouse)
+	{
+		glutWarpPointer(width / 2, height / 2);
+		last_mouse_x = width / 2;
+		last_mouse_y = height / 2;
+		need_reset_mouse = false;
+	}
 
 	glutSwapBuffers();
 	glutPostRedisplay();
@@ -125,7 +130,7 @@ void RenderTarget::handleInput(unsigned char key_pressed, int x, int y)
 
 void RenderTarget::mouseMoved(int x, int y)
 {
-	//tiles.mouseMoved(x, y);
+	need_reset_mouse = true;
 	if (last_mouse_x == -1)
 		last_mouse_x = x;
 	if (last_mouse_y == -1)

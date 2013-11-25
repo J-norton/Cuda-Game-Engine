@@ -110,6 +110,8 @@ Texture Visitor::loadTextureFromXml(pugi::xml_node& xml_text_data)
 //		location.attribute("y").as_float(), location.attribute("z").as_float() ) );
 //}
 
+
+
 //Creates a TriangleMesh instance from provided xml data
 TriangleMesh Visitor::loadMeshFromXml(pugi::xml_node& resource, Node& container)
 {
@@ -206,14 +208,14 @@ TriangleMesh Visitor::loadMeshFromXml(pugi::xml_node& resource, Node& container)
 	Texture fourth = scene_objects.getTextureByKey("Rosewood.jpg");
 	Texture fifth = scene_objects.getTextureByKey("Checkered Marble.png");
 
-	Texture sixth = scene_objects.getTextureByKey("Lava.png");
-	Texture seventh = scene_objects.getTextureByKey("Ocean Texture.png");
-	Texture eighth= scene_objects.getTextureByKey("Stonewall.jpg");
-	Texture ninth = scene_objects.getTextureByKey("Ambient Green.jpg");
-	Texture tenth = scene_objects.getTextureByKey("Red Pattern.jpg");
-	Texture eleventh = scene_objects.getTextureByKey("Brick Circle Pattern.jpg");
-	Texture twelfth = scene_objects.getTextureByKey("Green Wall.jpg");
-	Texture thirteenth = scene_objects.getTextureByKey("Brick Circle Pattern.jpg");
+	//Texture sixth = scene_objects.getTextureByKey("Lava.png");
+	//Texture seventh = scene_objects.getTextureByKey("Ocean Texture.png");
+	//Texture eighth= scene_objects.getTextureByKey("Stonewall.jpg");
+	//Texture ninth = scene_objects.getTextureByKey("Ambient Green.jpg");
+	//Texture tenth = scene_objects.getTextureByKey("Red Pattern.jpg");
+	//Texture eleventh = scene_objects.getTextureByKey("Brick Circle Pattern.jpg");
+	//Texture twelfth = scene_objects.getTextureByKey("Green Wall.jpg");
+	//Texture thirteenth = scene_objects.getTextureByKey("Brick Circle Pattern.jpg");
 
 
 	for (int i = 0; i < num_buffers; i++)
@@ -234,24 +236,24 @@ TriangleMesh Visitor::loadMeshFromXml(pugi::xml_node& resource, Node& container)
 			to_return = TriangleMesh(mesh_shader, mesh_buffers, third, static_mesh);
 		else if (i % 13 == 3)
 			to_return = TriangleMesh(mesh_shader, mesh_buffers, fourth, static_mesh);
-		else if (i % 13 == 4)
+		else
 			to_return = TriangleMesh(mesh_shader, mesh_buffers, fifth, static_mesh);
-		else if (i % 13 == 5)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, sixth, static_mesh);
-		else if (i % 13 == 6)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, seventh, static_mesh);
-		else if (i % 13 == 7)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, eighth, static_mesh);
-		else if (i % 13 == 8)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, ninth, static_mesh);
-		else if (i % 13 == 9)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, tenth, static_mesh);
-		else if (i % 13 == 10)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, eleventh, static_mesh);
-		else if (i % 13 == 11)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, twelfth, static_mesh);
-		else if (i % 13 == 12)
-			to_return = TriangleMesh(mesh_shader, mesh_buffers, thirteenth, static_mesh);
+		//else if (i % 13 == 5)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, sixth, static_mesh);
+		//else if (i % 13 == 6)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, seventh, static_mesh);
+		//else if (i % 13 == 7)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, eighth, static_mesh);
+		//else if (i % 13 == 8)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, ninth, static_mesh);
+		//else if (i % 13 == 9)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, tenth, static_mesh);
+		//else if (i % 13 == 10)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, eleventh, static_mesh);
+		//else if (i % 13 == 11)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, twelfth, static_mesh);
+		//else if (i % 13 == 12)
+		//	to_return = TriangleMesh(mesh_shader, mesh_buffers, thirteenth, static_mesh);
 
 
 		//to_return.setPosition(position);

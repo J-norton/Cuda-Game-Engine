@@ -3,6 +3,7 @@
 #include "TriangleMesh.h"
 #define NODE_H_HEADER
 #include "Node Visitor Header.h"
+#include "Light.h"
 
 
 class Node
@@ -10,6 +11,9 @@ class Node
 private:
 	std::vector<TriangleMesh> meshes;
 	std::vector<Node*> children;
+	std::vector<Light> light_sources;
+	static const int max_num_light_sources;
+	static int current_num_lights;
 public:
 	friend class Visitor;
 	friend class GlobalXmlVisitor;

@@ -20,16 +20,32 @@
     </Location>
   </Camera>
 
-  <!--<SpatialNode>
+  <SpatialNode>
+    <Light>
+      <Location
+        x="5"
+        y="5"
+        z="0">
+      </Location>
+
+      <Intensity
+        x="1">
+      </Intensity>
+      <Color
+        x="1"
+        y="1"
+        z="0">
+      </Color>
+    </Light>
 
     <TriangleMesh
       ObjFile="cube.obj"
       VSPath="Vertex Shader.glsl"
       FSPath="Fragment Shader.glsl"
-      Texture="Ocean Texture.png">
+      Texture="Green Wall.jpg">
 
       <Texture
-        TexturePath="Ocean Texture.png">
+        TexturePath="Green Wall.jpg">
         <Parameter
         MinFilter="Linear"
         MagFilter="Linear">
@@ -39,70 +55,31 @@
       <Uniform
         Name="translation"
         Type="vec3"
-        Data0="6.0"
-        Data1="4.0"
-        Data2="-12.0">
+        Data0="0.0"
+        Data1="0.0"
+        Data2="-4.0">
       </Uniform>
 
       <Uniform
         Name="scale"
         Type="vec3"
-        Data0="4.10"
-        Data1="4.10"
-        Data2="-4.10">
+        Data0="1.0"
+        Data1="1.0"
+        Data2="1.0">
       </Uniform>
 
       <Uniform
         Name="rotation"
         Type="vec3"
         Data0="0.0"
-        Data1="0.5"
-        Data2="0.5">
+        Data1="0.0"
+        Data2="0.0">
       </Uniform>
 
     </TriangleMesh>
 
-  </SpatialNode>-->
+  </SpatialNode>
 
-  <!--<TriangleMesh
-    ObjFile="cube.obj"
-    VSPath="Vertex Shader.glsl"
-    FSPath="Fragment Shader.glsl"
-    Texture="Stone.png">
-
-    <Texture
-      TexturePath="Stone.png">
-      <Parameter
-      MinFilter="Linear"
-      MagFilter="Linear">
-      </Parameter>
-    </Texture>
-
-    <Uniform
-      Name="translation"
-      Type="vec3"
-      Data0="0.0"
-      Data1="4.0"
-      Data2="-12.0">
-    </Uniform>
-
-    <Uniform
-      Name="scale"
-      Type="vec3"
-      Data0="7.10"
-      Data1="7.10"
-      Data2="-7.10">
-    </Uniform>
-
-    <Uniform
-      Name="rotation"
-      Type="vec3"
-      Data0="0.0"
-      Data1="0.5"
-      Data2="0.5">
-    </Uniform>
-
-  </TriangleMesh>-->
 
 
   <!--<TriangleMesh
@@ -162,7 +139,7 @@
 
 
 
-  <TriangleMesh
+  <!--<TriangleMesh
     ObjFile="Crytek Sponza.obj"
     VSPath="Vertex Shader.glsl"
     FSPath="Fragment Shader.glsl"
@@ -206,11 +183,11 @@
       Data1="0.5"
       Data2="0.5">
     </Uniform>
-  </TriangleMesh>
+  </TriangleMesh>-->
 
 
-
-  <!--<TriangleMesh
+<!--
+  <TriangleMesh
     ObjFile="sibenik.obj"
     VSPath="Vertex Shader.glsl"
     FSPath="Fragment Shader.glsl"
@@ -234,8 +211,8 @@
     <Uniform
       Name="translation"
       Type="vec3"
-      Data0="0.0"
-      Data1="4.0"
+      Data0="5.0"
+      Data1="14.0"
       Data2="-12.0">
     </Uniform>
 
@@ -254,8 +231,9 @@
       Data1="0.5"
       Data2="0.5">
     </Uniform>
-  </TriangleMesh>-->
+  </TriangleMesh>
 
 
+-->
 
 </root>

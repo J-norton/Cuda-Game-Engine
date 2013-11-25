@@ -91,6 +91,9 @@
     <ClCompile Include="Node.cpp">
       <Filter>GL Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>GL Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BufferManager.h">
@@ -151,6 +154,9 @@
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Node Visitor Header.h">
+      <Filter>GL Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
       <Filter>GL Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

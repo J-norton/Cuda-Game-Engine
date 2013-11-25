@@ -163,6 +163,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FrameBufferTexture.cpp" />
     <ClCompile Include="GlobalXmlVisitor.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="ObjFileReader.cpp" />
@@ -185,6 +186,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="FrameBufferTexture.h" />
     <ClInclude Include="GlobalXmlVisitor.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="Node Visitor Header.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="ObjFileReader.h" />
